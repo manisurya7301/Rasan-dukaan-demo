@@ -1,7 +1,12 @@
-@app.route('/admin/add-product', methods=['GET','POST'])
-def add_product():
-    if request.method == 'POST':
-        name = request.form['name']
-        price = request.form['price']
-        # Database mein add karo
-    return render_template('admin/add_product.html')
+import streamlit as st
+
+# Example Streamlit app code
+st.title("Add Product")
+st.write("Welcome to the Add Product Page!")
+
+# Use Streamlit widgets for input
+product_name = st.text_input("Product Name")
+price = st.number_input("Price", min_value=0.0)
+
+if st.button("Add Product"):
+    st.success(f"Product '{product_name}' added successfully!")
